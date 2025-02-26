@@ -1,19 +1,17 @@
-import { PostType } from "../types/postType";
 import { useState, FormEvent } from "react";
+import { usePosts } from "../context/postContext";
 
 // export default function FormAddPost({ onAddPost }) {
-export default function FormAddPost({
-  onAddPost,
-}: {
-  onAddPost: (post: PostType) => void;
-}) {
+export default function FormAddPost() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+
+  const { handleAddPost } = usePosts();
 
   const handleSubmit = function (e: FormEvent) {
     e.preventDefault();
     if (!body || !title) return;
-    onAddPost({ title, body });
+    handleAddPost({ title, body });
     setTitle("");
     setBody("");
   };

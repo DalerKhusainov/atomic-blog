@@ -1,7 +1,9 @@
-import { PostsType } from "../types/postType";
+import { usePosts } from "../context/postContext";
 
 // function List({ posts }) {
-export default function List({ posts }: { posts: PostsType }) {
+export default function List() {
+  const { posts } = usePosts();
+
   return (
     <ul>
       {posts.map((post, i) => (

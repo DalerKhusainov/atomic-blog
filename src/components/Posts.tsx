@@ -1,10 +1,9 @@
-import { PostsType } from "../types/postType";
 import List from "./PostList";
 
-export default function Posts({ posts }: { posts: PostsType }) {
+export default function Posts() {
   return (
     <section>
-      <List posts={posts} />
+      <List />
     </section>
   );
 }
